@@ -21,3 +21,6 @@ resource "aws_connect_routing_profile" "agents" {
   }
 }
 
+resource "aws_connect_contact_flow" "boo" {
+  name = "w"
+}

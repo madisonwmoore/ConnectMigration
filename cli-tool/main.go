@@ -12,13 +12,11 @@ import (
 )
 
 func main() {
-
 	//getRoutingProfiles("53ffe28d-757b-4ca0-99d8-4babf0e1fe0f")
-
 	createProviderFile("us-west-2")
 
 	f := hclwrite.NewEmptyFile()
-	tfFile, err := os.Create("routing_profiles.tf")
+	tfFile, err := os.Create("out/routing_profiles.tf")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -28,6 +26,8 @@ func main() {
 	region := "us-east-1"
 	addRoutingProfile("agents", routingProfileBody, RoutingProfileOptionsStruct{name: "agents", description: "agents description", region: &region})
 
+	addContactFlow("boo", routingProfileBody, nil)
+
 	// for i := 0; i < 10; i++ {
 	// 	addRoutingProfile(strconv.Itoa(i), rootBody)
 	// }
@@ -36,21 +36,9 @@ func main() {
 
 }
 
-type media_concurrencies struct {
-	channel     string
-	concurrency int
-}
-
-type RoutingProfileOptionsStruct struct {
-	name          string
-	description   string
-	region        *string
-	media_channel *[]media_concurrencies
-}
-
 func createProviderFile(region string) *hclwrite.Body {
 	f := hclwrite.NewEmptyFile()
-	tfFile, err := os.Create("providers.tf")
+	tfFile, err := os.Create("out/providers.tf")
 	if err != nil {
 		fmt.Println(err)
 		return nil
@@ -97,22 +85,4 @@ func getRoutingProfiles(instance_id string) {
 		fmt.Printf("  - Name: %s, ID: %s\n", *profile.Name, *profile.Id)
 	}
 
-}
-
-func addRoutingProfile(name string, rootBody *hclwrite.Body, config RoutingProfileOptionsStruct) {
-	rp := rootBody.AppendNewBlock("resource", []string{"aws_connect_routing_profile", name})
-	rp.Body().SetAttributeValue("name", cty.StringVal("w"))
-	rp.Body().SetAttributeValue("description", cty.StringVal("w"))
-	if config.region != nil {
-		rp.Body().SetAttributeValue("region", cty.StringVal(*config.region))
-	}
-
-	rp.Body().SetAttributeValue("default_outbound_queue_id", cty.StringVal("world"))
-	rp.Body().SetAttributeValue("instance_id", cty.StringVal("world"))
-
-	mc := rp.Body().AppendNewBlock("media_concurrencies", nil)
-	mc.Body().SetAttributeValue("channel", cty.StringVal("VOICE"))
-	mc.Body().SetAttributeValue("concurrency", cty.NumberIntVal(1))
-
-	rootBody.AppendNewline()
 }
