@@ -543,7 +543,7 @@
   "Actions": [
     {
       "Parameters": {
-        "QueueId": "${Tech Support Insurance All Other}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "caadaf52-f35e-498e-93ee-9521b91cd3a7",
       "Type": "UpdateContactTargetQueue",
@@ -621,7 +621,7 @@
       "Parameters": {
         "Text": "Please tell us where you are calling from, you can say things like; Repair Facility, Insurance Company, or Independent Appraiser",
         "LexV2Bot": {
-          "AliasArn": "${BOT}"
+          "AliasArn": "${LEX_ALIAS_ARN_UNKNOWN}"
         }
       },
       "Identifier": "fa71d827-3ae7-489a-a436-bbe031ece0ab",
@@ -662,7 +662,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support Default}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "Default Queue",
       "Type": "UpdateContactTargetQueue",
@@ -720,7 +720,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support Insurance CCC One}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "f904e533-2b9c-4bd4-a561-17b82db91337",
       "Type": "UpdateContactTargetQueue",
@@ -736,7 +736,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support RF All Other}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "eaf251ef-415c-453c-9181-65f2951d121b",
       "Type": "UpdateContactTargetQueue",
@@ -752,7 +752,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support CCC One}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "c3dc8c1f-9952-4ace-aec0-e46ff5e21624",
       "Type": "UpdateContactTargetQueue",
@@ -802,7 +802,7 @@
       "Parameters": {
         "Text": "What product do you need help with?",
         "LexV2Bot": {
-          "AliasArn": "${BOT}"
+          "AliasArn": "${LEX_ALIAS_ARN_UNKNOWN}"
         }
       },
       "Identifier": "ProductType Lexbot I",
@@ -843,7 +843,7 @@
       "Parameters": {
         "SSML": "<speak>\nWhat product do you need help with? You can say things like; \n<say-as interpret-as=\"value\">CCC</say-as> One Estimating, \n<say-as interpret-as=\"value\">CCC</say-as> One Portal</speak>",
         "LexV2Bot": {
-          "AliasArn": "${BOT}"
+          "AliasArn": "${LEX_ALIAS_ARN_UNKNOWN}"
         }
       },
       "Identifier": "ProductType Lex IA",
@@ -928,7 +928,7 @@
       "Parameters": {
         "Text": "Are you calling about your CCC Billing account? ",
         "LexV2Bot": {
-          "AliasArn": "${BOT}"
+          "AliasArn": "${LEX_ALIAS_ARN_UNKNOWN}"
         }
       },
       "Identifier": "CCC Billing?",
@@ -965,7 +965,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support Default}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "1e537004-788a-4b90-828f-06e3462d79bb",
       "Type": "UpdateContactTargetQueue",
@@ -1036,7 +1036,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support RF All Other}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "dab9d0b6-aca6-4737-9d4e-d97d9eab2f2e",
       "Type": "UpdateContactTargetQueue",
@@ -1052,7 +1052,7 @@
     },
     {
       "Parameters": {
-        "QueueId": "${Tech Support CCC One}"
+        "QueueId": "${QUEUE_ARN_UNKNOWN}"
       },
       "Identifier": "5e49cbd0-cfaa-4544-bc03-ebcaad354a64",
       "Type": "UpdateContactTargetQueue",
@@ -1089,7 +1089,7 @@
       "Parameters": {
         "Text": "What product do you need help with?\nYou can say things like:\nCCC One Estimating\nCCC Repair Workflow\nCCC One Portal\nor the Online Customer Billing Portal",
         "LexV2Bot": {
-          "AliasArn": "${BOT}"
+          "AliasArn": "${LEX_ALIAS_ARN_UNKNOWN}"
         }
       },
       "Identifier": "ProductType Lex RF",

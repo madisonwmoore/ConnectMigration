@@ -22,7 +22,7 @@ type ContactFlowOptions struct {
 }
 
 func getContactFlow(flowId string, instanceId string) *connect.DescribeContactFlowOutput {
-	sdkConfig, _ := config.LoadDefaultConfig(context.TODO())
+	sdkConfig, _ := config.LoadDefaultConfig(context.TODO(), config.WithSharedConfigProfile("ccc-dev"))
 	client := connect.NewFromConfig(sdkConfig)
 	var params connect.DescribeContactFlowInput
 	params.ContactFlowId = &flowId
@@ -47,7 +47,7 @@ func addContactFlow(name string, rootBody *hclwrite.Body, config ContactFlowOpti
 		rp.Body().SetAttributeValue("region", cty.StringVal(*config.region))
 	}
 	rp.Body().SetAttributeValue("type", cty.StringVal(config.flowType))
-	rp.Body().SetAttributeValue("content", cty.StringVal(config.content))
+	rp.Body().SetAttributeRaw("content", hclwrite.TokensForFunctionCall("templatefile", hclwrite.TokensForFunctionCall("file")))
 	//rp.Body().SetAttributeValue("content", cty.StringVal(config.content))
 	//rp.Body().SetAttributeValue("tags", cty.StringVal(config.tags))
 	rootBody.AppendNewline()
